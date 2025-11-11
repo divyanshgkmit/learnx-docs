@@ -557,32 +557,32 @@ It ensures relational integrity and supports the platform's main functionalities
 <tbody>
 <tr>
 <td><strong>USERS</strong></td>
-<td><code>_id</code>, name, email, password, timestamps</td>
+<td><code>_id</code>, <code>name</code>, <code>email</code>, <code>password</code>, <code>timestamps</code></td>
 <td>Unique email, hashed password, supports login &amp; profile</td>
 </tr>
 <tr>
 <td><strong>ROLES</strong></td>
-<td><code>_id</code>, name, timestamps</td>
+<td><code>_id</code>, <code>name</code>, <code>timestamps</code></td>
 <td>Defines user roles (Instructor / Student)</td>
 </tr>
 <tr>
 <td><strong>USER_ROLES</strong></td>
-<td><code>_id</code>, userId, roleId, timestamps</td>
+<td><code>_id</code>, <code>userId</code>, <code>roleId</code>, <code>timestamps</code></td>
 <td>Links users with roles; many-to-many mapping</td>
 </tr>
 <tr>
 <td><strong>COURSES</strong></td>
-<td><code>_id</code>, title, description, instructorId, timestamps</td>
+<td><code>_id</code>, <code>title</code>, <code>description</code>, <code>instructorId</code>, <code>timestamps</code></td>
 <td>Stores course details created by instructors</td>
 </tr>
 <tr>
 <td><strong>MODULES</strong></td>
-<td><code>_id</code>, title, courseId, videoUrl, duration, timestamps</td>
+<td><code>_id</code>, <code>title</code>, <code>courseId</code>, <code>videoUrl</code>, <code>duration</code>, <code>timestamps</code></td>
 <td>Lessons within a course</td>
 </tr>
 <tr>
 <td><strong>ENROLLMENTS</strong></td>
-<td><code>_id</code>, studentId, courseId, status, timestamps</td>
+<td><code>_id</code>, <code>studentId</code>, <code>courseId</code>, <code>status</code>, <code>timestamps</code></td>
 <td>Tracks which students are enrolled in which courses</td>
 </tr>
 </tbody>

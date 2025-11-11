@@ -702,6 +702,7 @@
 <hr />
 <h2 id="2-functional-flow"><strong>2. Functional Flow</strong><a class="headerlink" href="#2-functional-flow" title="Permanent link">&para;</a></h2>
 <h3 id="21-user-registration-login"><strong>2.1 User Registration &amp; Login</strong><a class="headerlink" href="#21-user-registration-login" title="Permanent link">&para;</a></h3>
+<p>Shows how users sign up or log in. After validation, a token is generated and they’re redirected to their dashboard based on role.</p>
 <pre class="mermaid"><code>flowchart TD
     A[User Opens App] --&gt; B[Choose Sign Up or Login]
     B --&gt;|Sign Up| C[Enter Name, Email, Password, Role]
@@ -715,12 +716,14 @@
     F --&gt;|Invalid| K[Show Error Message]</code></pre>
 <hr />
 <h3 id="22-video-playback-flow"><strong>2.2 Video Playback Flow</strong><a class="headerlink" href="#22-video-playback-flow" title="Permanent link">&para;</a></h3>
+<p>Students open a lesson and play the video directly from Cloudinary. Once the video is completed, they can mark the lesson as done to track progress.</p>
 <pre class="mermaid"><code>flowchart LR
     A[Student Opens Lesson Page] --&gt; B[Click Lesson Tabs]
     B --&gt; C[Stream Video in Player]
     C --&gt; D[Mark Lesson as Completed]</code></pre>
 <hr />
 <h3 id="23-enrollment-flow"><strong>2.3 Enrollment Flow</strong><a class="headerlink" href="#23-enrollment-flow" title="Permanent link">&para;</a></h3>
+<p>Students select a course and proceed to the payment gateway. On successful payment, the course is added to their dashboard and they can start learning. If the payment fails, an error message is shown.</p>
 <pre class="mermaid"><code>flowchart TD
     A[Student Selects Course] --&gt; B[Click Enroll]
     B --&gt; C[Redirect to Payment Gateway - Test Mode]
@@ -767,6 +770,7 @@
 </table>
 <hr />
 <h2 id="4-instructor-student-workflow"><strong>4. Instructor &amp; Student Workflow</strong><a class="headerlink" href="#4-instructor-student-workflow" title="Permanent link">&para;</a></h2>
+<p>Instructors create courses by adding details and uploading lesson videos to Cloudinary. Once published, these courses appear for students to browse and enroll. Students can join courses, access lessons, watch videos, and mark their progress as completed from their dashboard.</p>
 <pre class="mermaid"><code>flowchart TD
     A[Instructor Dashboard] --&gt; B[Create Course]
     B --&gt; C[Add Course Details - Title, Description, Tags]
@@ -779,7 +783,8 @@
     K --&gt; L[Click Enroll]
     L --&gt; M[Enrollment Confirmed]
     M --&gt; N[Access Lessons]
-    N --&gt; O[Watch Videos]</code></pre>
+    N --&gt; O[Watch Videos]
+    O --&gt; P[Mark Course as Completed]</code></pre>
 <hr />
 <h2 id="5-use-case-summary"><strong>5. Use Case Summary</strong><a class="headerlink" href="#5-use-case-summary" title="Permanent link">&para;</a></h2>
 <table>
@@ -825,6 +830,7 @@
 </table>
 <hr />
 <h2 id="6-system-flow"><strong>6. System Flow</strong><a class="headerlink" href="#6-system-flow" title="Permanent link">&para;</a></h2>
+<p>The React + Vite frontend interacts with the Node.js + Express backend via APIs. The backend connects to MongoDB for data storage and Cloudinary for media handling. The PWA setup ensures fast, responsive, user experience across devices.</p>
 <pre class="mermaid"><code>graph LR
     A[Frontend - React/Vite] --&gt; B[Backend - Nodejs/Express]
     B --&gt; C[(Database - MongoDB)]
@@ -860,6 +866,10 @@
 <tr>
 <td>Video not loading</td>
 <td>Retry or show fallback</td>
+</tr>
+<tr>
+<td>Instructor deletes a course with enrolled students</td>
+<td>Currently, the course is deleted but in the future, a soft delete or “inactive” status can be added to avoid data loss for students.</td>
 </tr>
 </tbody>
 </table>
