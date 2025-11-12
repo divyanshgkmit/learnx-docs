@@ -39,7 +39,17 @@ It supports **role-based access**, smooth **video uploads**, and **course manage
 
 ---
 
-## **4. Summary**
+## **4. Key Features**
+ - Role-based Access (Student/Instructor)
+ - Course Creation & Management
+ - Video Upload & Streaming
+ - Course Browsing & Search
+ - Student Enrollment System
+ - Mobile Responsive Design
+
+---
+
+## **5. Conclusion**
 
 LearnX combines powerful backend logic with a fast and modern frontend to deliver a smooth e-learning experience.  
 With **PWA support**, users can also **install LearnX as a mobile app**, making learning accessible anywhere, anytime.

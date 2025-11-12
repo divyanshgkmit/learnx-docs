@@ -48,18 +48,23 @@ flowchart TD
 
 ---
 
-## **4. Planned Tech Setup**
+## **4. Tech Stack**
 
-| <span style="font-size:1.3em; font-weight:700;">**Layer**</span>                       | <span style="font-size:1.3em; font-weight:700;">**Technology**</span>                                                                                                |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span style="font-size:1.15em; font-weight:700;">**Frontend**</span>                   | <img src="https://skillicons.dev/icons?i=js,react,tailwind,vite" alt="JavaScript, React, Tailwind, Vite"/>                                                           |
-| <span style="font-size:1.15em; font-weight:700;">**Backend**</span>                    | <img src="https://skillicons.dev/icons?i=nodejs,express" alt="Node.js, Express"/>                                                                                    |
-| <span style="font-size:1.15em; font-weight:700;">**Database**</span>                   | <img src="https://skillicons.dev/icons?i=mongodb,mongoose" alt="MongoDB, Mongoose"/>                                                                                 |
-| <span style="font-size:1.15em; font-weight:700;">**Media Storage**</span>              | <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/231498caad5aa2ab9f05c4b6410fb5f7a8d3e424/icons/Cloudinary-Dark.svg" width="50px" alt="Cloudinary"/> |
-| <span style="font-size:1.15em; font-weight:700;">**Payment Integration (Test)**</span> | <img src="https://cdn-icons-png.flaticon.com/128/174/174861.png" width="50px" alt="PayPal"/>                                                                         |
-| <span style="font-size:1.15em; font-weight:700;">**Authentication**</span>             | <img src="https://img.icons8.com/?size=96&id=rHpveptSuwDz&format=png" width="50px" alt="JWT"/>                                                                       |
-| <span style="font-size:1.15em; font-weight:700;">**Mobile App**</span>                 | <img src="https://blog.openreplay.com/images/building-a-pwa-with-react/images/hero.png" width="50px" alt="React+PWA"/>                                               |
-| <span style="font-size:1.15em; font-weight:700;">**Hosting & Deployment**</span>                | <img src="https://skillicons.dev/icons?i=github,aws,githubactions" alt="AWS"/>        
+| **Layer** | **Logo** | **Technology** | **Version** |
+|-----------|----------|----------------|-------------|
+| **Programming Language** | <img src="https://skillicons.dev/icons?i=js" width="32" alt="JavaScript"/> | JavaScript | ES14 |
+| **Frontend Library** | <img src="https://skillicons.dev/icons?i=react" width="32" alt="React"/> | React | 19.2.0 |
+| **CSS Framework** | <img src="https://skillicons.dev/icons?i=tailwind" width="32" alt="Tailwind CSS"/> | Tailwind CSS | 4.1.17 |
+| **Build Tool** | <img src="https://skillicons.dev/icons?i=vite" width="32" alt="Vite"/> | Vite | 7.2.2 |
+| **Runtime Environment** | <img src="https://skillicons.dev/icons?i=nodejs" width="32" alt="Node.js"/> | Node.js | 22.12.0 |
+| **Backend Framework** | <img src="https://skillicons.dev/icons?i=express" width="32" alt="Express"/> | Express | 5.1.0 |
+| **Database** | <img src="https://skillicons.dev/icons?i=mongodb" width="32" alt="MongoDB"/> | MongoDB | 8.0 |
+| **Media Storage** | <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/231498caad5aa2ab9f05c4b6410fb5f7a8d3e424/icons/Cloudinary-Dark.svg" width="32" alt="Cloudinary"/> | Cloudinary | 1.45.0 |
+| **Payment Integration (Test)** | <img src="https://cdn-icons-png.flaticon.com/128/174/174861.png" width="32" alt="PayPal"/> | PayPal SDK | 1.8.0 |
+| **Authentication** | <img src="https://img.icons8.com/?size=96&id=rHpveptSuwDz&format=png" width="32" alt="JWT"/> | JWT | 9.0.2 |
+| **Mobile Experience** | <img src="https://blog.openreplay.com/images/building-a-pwa-with-react/images/hero.png" width="32" alt="React+PWA"/> | React PWA | Manifest V3 |
+| **Cloud Hosting** | <img src="https://skillicons.dev/icons?i=aws" width="32" alt="AWS"/> | AWS | Latest |
+| **Version Control** | <img src="https://skillicons.dev/icons?i=github,githubactions" width="64" alt="GitHub"/> | GitHub | Latest |
 
 ---
 
@@ -85,7 +90,55 @@ The Level 1 diagram expands the system into key functional processes **Authentic
 
 ---
 
-## **6. Conclusion**
+## **6. Testing Plan**
+
+Testing strategy to ensure all features work correctly
+
+| **Area**              | **What to Test**                              | **Test Cases**                                                                 |
+|-----------------------|-----------------------------------------------|--------------------------------------------------------------------------------|
+| **Login Form**        | User can log in                               | - Valid email + password → login success<br>- Wrong password → show error<br>- Empty field → show error |
+| **Registration**      | New user can sign up                          | - Fill all fields → account created<br>- Same email twice → error |
+| **Course List**       | Shows courses                                 | - Page shows course cards<br>- Search box finds course by name<br>- No results → "Not found" message |
+| **Course Details**    | Shows course info                             | - Title, price, instructor name visible<br>- Enroll button works |
+| **Enrollment**        | User can join course                          | - Click Enroll → "You are enrolled" message |
+| **Course Creation**   | Instructor adds course                        | - Click Publish → course appears in list |
+| **API: Login**        | POST /auth/login                              | - Correct email/password → get token<br>- Wrong password → error |
+| **API: Get Courses**  | GET /api/courses                              | - Returns list of courses<br>- Search works |
+
+---
+
+## **7. API Endpoints (Planned)**
+
+### **Authentication APIs**
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `POST /api/auth/logout` - User logout
+- `GET /api/auth/me` - Get current user
+
+### **User APIs**
+- `GET /api/users/profile` - Get user profile
+- `PUT /api/users/profile` - Update user profile
+
+### **Course APIs**
+- `GET /api/courses` - Get all courses (with search/filter)
+- `GET /api/courses/:id` - Get single course details
+- `POST /api/courses` - Create new course (Instructor only)
+- `PUT /api/courses/:id` - Update course (Instructor only)
+- `DELETE /api/courses/:id` - Delete course (Instructor only)
+
+### **Module APIs**
+- `GET /api/courses/:id/modules` - Get course modules
+- `POST /api/courses/:id/modules` - Add module to course
+- `PUT /api/modules/:id` - Update module
+- `DELETE /api/modules/:id` - Delete module
+
+### **Enrollment APIs**
+- `POST /api/enroll/:courseId` - Enroll in course (with test payment)
+- `GET /api/enroll/my-courses` - Get enrolled courses
+
+---
+
+## **8. Conclusion**
 
 **LearnX LMS** uses secure authentication and role-based authorization to provide:
 
