@@ -4,7 +4,7 @@
 
 <img src="https://skillicons.dev/icons?i=js,react,nodejs,express,mongo,tailwind,vite" alt="Tech stack"/>
 
-It allows **instructors** to create and manage courses, while **students** can learn, watch lessons, and track their progress easily.
+It allows **instructors** to create and manage courses, while **students** can learn, watch lessons, and mark their courses watched.
 
 ---
 
@@ -33,7 +33,6 @@ It supports **role-based access**, smooth **video uploads**, and **course manage
 | Backend | Node.js + Express | Handle APIs and business logic |
 | Database | MongoDB + Mongoose | Store users, courses, and video data |
 | Media | Cloudinary | Host and manage course videos |
-| Payment | PayPal SDK | Manage secure transactions |
 | Auth | JWT + bcrypt | Provide secure login and user sessions |
 | PWA / Mobile | React + Service Workers | Enable offline access and mobile installation |
 

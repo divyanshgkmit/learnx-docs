@@ -13,8 +13,7 @@ It focuses on simple course delivery, content discovery, and reliable media acce
 | BU-1 | Course Creation | Instructors upload and publish course content and videos. | Instructor |
 | BU-2 | Course Discovery | Students browse and search the course catalog. | Student |
 | BU-3 | Enrollment & Access | Students enroll and access course content on demand. | Student |
-| BU-4 | Learning Delivery | Students watch lessons via an integrated video player. | Student |
-| BU-5 | Payment (paypal sdk) | Testing payment configuration for future monetization (sandbox only, not real payments). | Student / System |
+| BU-4 | Learning Delivery | Students watch lessons. | Student |
 
 ---
 
@@ -27,7 +26,6 @@ flowchart TD
     C --> D[Students Browse & Enroll]
     D --> E[Access Videos & Learn]
     D --> G[Instructor Insights & Earnings]
-    E --> F[System Tracks Progress - Future Scope]
 ```
 
 ---
@@ -39,5 +37,4 @@ flowchart TD
 * **Students** find and start courses fast  
 * **Students** learn anytime on any device  
 * **Cloud** keeps videos safe and fast  
-* **Test payments** ready for future money  
 * **Works** on phones and laptops  

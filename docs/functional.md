@@ -40,32 +40,36 @@ flowchart TD
 
 ---
 
-### **II. Video Playback Flow**
+### **II. Course Creation & Management Flow**
 
-Students open a lesson and play the video directly from Cloudinary. Once the video is completed, they can mark the lesson as done to track progress.
+Instructors create and manage courses with modules and media uploads.
 
 ```mermaid
-flowchart LR
-    A[Student Opens Lesson Page] --> B[Click Lesson Tabs]
-    B --> C[Stream Video in Player]
-    C --> D[Mark Lesson as Completed]
+flowchart TD
+    A[Instructor Dashboard] --> B[Create New Course]
+    B --> C[Add Course Details]
+    C --> D[Upload Thumbnail to Cloudinary]
+    D --> E[Add Course Modules]
+    E --> F[Upload Module Videos]
+    F --> G[Publish Course]
+    G --> H[Course Available for Enrollment]
 ```
 
 ---
 
-### **III. Enrollment Flow**
+### **III. Student Learning Flow**
 
-Students select a course and proceed to the payment gateway. On successful payment, the course is added to their dashboard and they can start learning. If the payment fails, an error message is shown.
+Students browse, enroll, and progress through courses with video content.
 
 ```mermaid
 flowchart TD
-    A[Student Selects Course] --> B[Click Enroll]
-    B --> C[Redirect to Payment Gateway - Test Mode]
-    C --> D{Payment Successful?}
-    D -->|Yes| E[Confirm Enrollment]
-    D -->|No| F[Show Payment Failed Message]
-    E --> G[Add Course to Student Dashboard]
-    G --> H[Access Course Lessons]
+    A[Student Dashboard] --> B[Browse Courses]
+    B --> C[View Course Details]
+    C --> D[Enroll in Course]
+    D --> E[Access Learning Interface]
+    E --> F[Navigate Through Modules]
+    F --> G[Watch Video Content]
+    G --> H[Mark Course as Completed]
 ```
 
 ---
@@ -83,73 +87,55 @@ flowchart TD
 
 ---
 
-## **4. Instructor & Student Workflow**
+## **4. Use Case Summary**
 
-Instructors create courses by adding details and uploading lesson videos to Cloudinary. Once published, these courses appear for students to browse and enroll. Students can join courses, access lessons, watch videos, and mark their progress as completed from their dashboard.
-
-```mermaid
-flowchart TD
-    A[Instructor Dashboard] --> B[Create Course]
-    B --> C[Add Course Details - Title, Description, Tags]
-    C --> D[Upload Lesson Videos to Cloudinary]
-    D --> E[Publish Course]
-    E --> F[Course Visible to Students]
-    F --> G[Manage Existing Courses - Edit / Delete]
-    I[Student Dashboard] --> J[Browse Courses]
-    J --> K[View Course Details]
-    K --> L[Click Enroll]
-    L --> M[Enrollment Confirmed]
-    M --> N[Access Lessons]
-    N --> O[Watch Videos]
-    O --> P[Mark Course as Completed]
-```
+| **ID** | **Use Case** | **Action** |
+|--------|--------------|------------|
+| **F1** | User Registration | Create account with Student/Instructor role |
+| **F2** | User Login | Authenticate with email/password |
+| **F3** | Course Creation | Instructor creates courses with details |
+| **F4** | Module Management | Add/remove course modules with videos |
+| **F5** | Course Enrollment | Students enroll in available courses |
+| **F6** | Video Learning | Stream module videos |
+| **F7** | Progress Tracking | Mark courses as completed |
+| **F8** | File Uploads | Upload thumbnails and videos to Cloudinary |
 
 ---
 
-## **5. Use Case Summary**
+## **5. System Flow**
 
-| **ID** | **Use Case**     | **Action**                          |
-| :----: | ---------------- | ----------------------------------- |
-|   F1   | Register User    | Sign up as Instructor or Student    |
-|   F2   | Login User       | Authenticate using JWT or Firebase  |
-|   F3   | Create Course    | Instructor adds course with videos  |
-|   F4   | Enroll in Course | Students join a course              |
-|   F5   | Watch Videos     | Students stream lessons             |
-|   F6   | Manage Course    | Instructor edits or deletes courses |
-
----
-
-## **6. System Flow**
-
-The React + Vite frontend interacts with the Node.js + Express backend via APIs. The backend connects to MongoDB for data storage and Cloudinary for media handling. The PWA setup ensures fast, responsive, user experience across devices.
+Modern web architecture with React frontend and Node.js backend.
 
 ```mermaid
 graph LR
-    A[Frontend - React/Vite] --> B[Backend - Nodejs/Express]
+    A[Frontend - React/Vite] --> B[Backend - Node.js/Express]
     B --> C[(Database - MongoDB)]
-    B --> D[(Cloudinary)]
-    A -->|API Calls| B
+    B --> D[(Cloudinary - Media Storage)]
+    A -->|REST API Calls| B
+    A -->|JWT Authentication| B
     A -->|PWA| A
 ```
 
 ---
 
-## **7. Edge Case Handling**
+## **6. Edge Case Handling**
 
-| **Scenario**        | **Expected Behavior**              |
-| ------------------- | ---------------------------------- |
-| Invalid credentials | Show error message                 |
-| JWT expired         | Redirect to login                  |
-| Unauthorized access | Redirect to dashboard              |
-| Upload failed       | Retry or notify user               |
-| Video not loading   | Retry or show fallback             |
-| Instructor deletes a course with enrolled students | Currently, the course is deleted but in the future, a soft delete or “inactive” status can be added to avoid data loss for students. |
+| **Scenario** | **Expected Behavior** |
+|--------------|---------------------|
+| Invalid credentials | Show error message with validation |
+| JWT expired | Auto-redirect to login page |
+| Unauthorized access | Redirect to appropriate dashboard |
+| Video playback issues | Fallback handling with error states |
+| Course deletion with enrollments | Current: Hard delete, Future: Soft delete with archives |
 
---- 
+---
 
-## **8. Future Scope**
+## **7. Future Scope**
 
-* **Progress Tracker:** Track lesson completion and learning analytics
-* **Payment Integration:** Enable paid course enrollment
-* **AI Recommendations:** Suggest courses based on learner behavior
-* **Enhanced PWA:** Push notifications, offline playback, and sync
+* **Advanced Analytics** - Detailed progress tracking and learning insights
+* **Payment Integration** - Paid course enrollment system
+* **Discussion Forums** - Student-instructor interactions
+* **Assessment System** - Quizzes and assignments
+* **Mobile App** - Native mobile application
+* **Offline Learning** - Downloadable course content
+* **AI Recommendations** - Personalized course suggestions

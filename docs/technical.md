@@ -39,8 +39,7 @@ After login, the system checks the user’s role and grants access accordingly. 
 flowchart TD
     A[Login Successful] --> B[Check Role]
     B -->|Instructor| C[Instructor Dashboard]
-    C --> D[Create / Edit / Delete Courses]
-    C --> E[View Enrolled Students]
+    C --> D[Create / Edit / Delete Courses & Modules]
     B -->|Student| F[Student Dashboard]
     F --> G[Browse & Enroll Courses]
     F --> H[Watch Lessons]
@@ -60,7 +59,6 @@ flowchart TD
 | **Backend Framework**          | <img src="https://skillicons.dev/icons?i=express" width="32" alt="Express"/>                                                                                       | Express        | 5.1.0       |
 | **Database**                   | <img src="https://skillicons.dev/icons?i=mongodb" width="32" alt="MongoDB"/>                                                                                       | MongoDB        | 8.0         |
 | **Media Storage**              | <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/231498caad5aa2ab9f05c4b6410fb5f7a8d3e424/icons/Cloudinary-Dark.svg" width="32" alt="Cloudinary"/> | Cloudinary     | 1.45.0      |
-| **Payment Integration (Test)** | <img src="https://cdn-icons-png.flaticon.com/128/174/174861.png" width="32" alt="PayPal"/>                                                                         | PayPal SDK     | 1.8.0       |
 | **Authentication**             | <img src="https://img.icons8.com/?size=96&id=rHpveptSuwDz&format=png" width="32" alt="JWT"/>                                                                       | JWT            | 9.0.2       |
 | **Mobile Experience**          | <img src="https://blog.openreplay.com/images/building-a-pwa-with-react/images/hero.png" width="32" alt="React+PWA"/>                                               | React PWA      | Manifest V3 |
 | **Cloud Hosting**              | <img src="https://skillicons.dev/icons?i=aws" width="32" alt="AWS"/>                                                                                               | AWS            | Latest      |
@@ -78,38 +76,32 @@ flowchart TD
 | `/api/auth/login`    | POST       | User login and JWT generation |
 | `/api/auth/me`       | GET        | Get current user profile      |
 
-### **II. User Endpoints**
-
-| **Endpoint**         | **Method** | **Description**       |
-| -------------------- | ---------- | --------------------- |
-| `/api/users/profile` | GET        | Get user profile data |
-| `/api/users/profile` | PUT        | Update user profile   |
-
-### **III. Course Endpoints**
+### **II. Course Endpoints**
 
 | **Endpoint**       | **Method** | **Description**                     |
 | ------------------ | ---------- | ----------------------------------- |
-| `/api/courses`     | GET        | Get all courses (public)            |
+| `/api/courses`     | GET        | Get all published courses (with search/filters)            |
 | `/api/courses`     | POST       | Create new course (instructor only) |
-| `/api/courses/:id` | GET        | Get course details                  |
+| `/api/courses/:id` | GET        | Get specific course details                  |
 | `/api/courses/:id` | PUT        | Update course (instructor only)     |
 | `/api/courses/:id` | DELETE     | Delete course (instructor only)     |
+| `/api/courses/instructor/:instructorId` | GET | Get instructor's courses |
+
+### **III. Module Endpoints**
+
+| **Endpoint**               | **Method** | **Description**      |
+| -------------------------- | ---------- | -------------------- |
+| `/api/modules/course/:courseId` | GET        | Get all modules for a course   |
+| `/api/modules` | POST       | Create module (Instructor only) |
+| `/api/modules/:id`         | DELETE     | Delete module (Instructor only)       |
 
 ### **IV. Enrollment Endpoints**
 
 | **Endpoint**             | **Method** | **Description**             |
 | ------------------------ | ---------- | --------------------------- |
-| `/api/enroll/:courseId`  | POST       | Enroll in course            |
-| `/api/enroll/my-courses` | GET        | Get user's enrolled courses |
-
-### **V. Module Endpoints**
-
-| **Endpoint**               | **Method** | **Description**      |
-| -------------------------- | ---------- | -------------------- |
-| `/api/courses/:id/modules` | GET        | Get course modules   |
-| `/api/courses/:id/modules` | POST       | Add module to course |
-| `/api/modules/:id`         | PUT        | Update module        |
-| `/api/modules/:id`         | DELETE     | Delete module        |
+| `/api/enrollments/course/:courseId`  | POST       | Enroll in course (Student only)            |
+| `/api/enrollments/course/:courseId/status` | GET        | Check enrollment status |
+| `/api/enrollments/course/:courseId` | GET | Get course enrollments (Instructor only) |
 
 ---
 

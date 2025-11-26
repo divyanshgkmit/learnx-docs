@@ -36,6 +36,7 @@ nav:
   - Business Use Case: business.md
   - Technical Documentation:
     - Architecture & Docs: technical.md
+    - CI/CD Pipeline and Deployment Flow: cicd.md
     - Data Flow Diagrams: dfd.md
     - Testing Plan: testing.md
   - Schema Docs: schema.md
