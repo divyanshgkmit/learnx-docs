@@ -16,7 +16,7 @@
         <link rel="prev" href="../business/">
       
       
-        <link rel="next" href="../dfd/">
+        <link rel="next" href="../cicd/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -471,18 +471,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ii-user-endpoints" class="md-nav__link">
+  <a href="#ii-course-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
-      II. User Endpoints
+      II. Course Endpoints
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iii-course-endpoints" class="md-nav__link">
+  <a href="#iii-module-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
-      III. Course Endpoints
+      III. Module Endpoints
     </span>
   </a>
   
@@ -492,15 +492,6 @@
   <a href="#iv-enrollment-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       IV. Enrollment Endpoints
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#v-module-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      V. Module Endpoints
     </span>
   </a>
   
@@ -524,6 +515,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Pipeline and Deployment Flow
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -686,18 +700,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ii-user-endpoints" class="md-nav__link">
+  <a href="#ii-course-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
-      II. User Endpoints
+      II. Course Endpoints
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iii-course-endpoints" class="md-nav__link">
+  <a href="#iii-module-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
-      III. Course Endpoints
+      III. Module Endpoints
     </span>
   </a>
   
@@ -707,15 +721,6 @@
   <a href="#iv-enrollment-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
       IV. Enrollment Endpoints
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#v-module-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      V. Module Endpoints
     </span>
   </a>
   
@@ -782,8 +787,7 @@ Users log in or sign up using email and password.</p>
 <pre class="mermaid"><code>flowchart TD
     A[Login Successful] --&gt; B[Check Role]
     B --&gt;|Instructor| C[Instructor Dashboard]
-    C --&gt; D[Create / Edit / Delete Courses]
-    C --&gt; E[View Enrolled Students]
+    C --&gt; D[Create / Edit / Delete Courses &amp; Modules]
     B --&gt;|Student| F[Student Dashboard]
     F --&gt; G[Browse &amp; Enroll Courses]
     F --&gt; H[Watch Lessons]</code></pre>
@@ -848,12 +852,6 @@ Users log in or sign up using email and password.</p>
 <td>1.45.0</td>
 </tr>
 <tr>
-<td><strong>Payment Integration (Test)</strong></td>
-<td><img src="https://cdn-icons-png.flaticon.com/128/174/174861.png" width="32" alt="PayPal"/></td>
-<td>PayPal SDK</td>
-<td>1.8.0</td>
-</tr>
-<tr>
 <td><strong>Authentication</strong></td>
 <td><img src="https://img.icons8.com/?size=96&id=rHpveptSuwDz&format=png" width="32" alt="JWT"/></td>
 <td>JWT</td>
@@ -908,29 +906,7 @@ Users log in or sign up using email and password.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="ii-user-endpoints"><strong>II. User Endpoints</strong><a class="headerlink" href="#ii-user-endpoints" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th><strong>Endpoint</strong></th>
-<th><strong>Method</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/users/profile</code></td>
-<td>GET</td>
-<td>Get user profile data</td>
-</tr>
-<tr>
-<td><code>/api/users/profile</code></td>
-<td>PUT</td>
-<td>Update user profile</td>
-</tr>
-</tbody>
-</table>
-<h3 id="iii-course-endpoints"><strong>III. Course Endpoints</strong><a class="headerlink" href="#iii-course-endpoints" title="Permanent link">&para;</a></h3>
+<h3 id="ii-course-endpoints"><strong>II. Course Endpoints</strong><a class="headerlink" href="#ii-course-endpoints" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -943,7 +919,7 @@ Users log in or sign up using email and password.</p>
 <tr>
 <td><code>/api/courses</code></td>
 <td>GET</td>
-<td>Get all courses (public)</td>
+<td>Get all published courses (with search/filters)</td>
 </tr>
 <tr>
 <td><code>/api/courses</code></td>
@@ -953,7 +929,7 @@ Users log in or sign up using email and password.</p>
 <tr>
 <td><code>/api/courses/:id</code></td>
 <td>GET</td>
-<td>Get course details</td>
+<td>Get specific course details</td>
 </tr>
 <tr>
 <td><code>/api/courses/:id</code></td>
@@ -964,6 +940,38 @@ Users log in or sign up using email and password.</p>
 <td><code>/api/courses/:id</code></td>
 <td>DELETE</td>
 <td>Delete course (instructor only)</td>
+</tr>
+<tr>
+<td><code>/api/courses/instructor/:instructorId</code></td>
+<td>GET</td>
+<td>Get instructor's courses</td>
+</tr>
+</tbody>
+</table>
+<h3 id="iii-module-endpoints"><strong>III. Module Endpoints</strong><a class="headerlink" href="#iii-module-endpoints" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Endpoint</strong></th>
+<th><strong>Method</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/api/modules/course/:courseId</code></td>
+<td>GET</td>
+<td>Get all modules for a course</td>
+</tr>
+<tr>
+<td><code>/api/modules</code></td>
+<td>POST</td>
+<td>Create module (Instructor only)</td>
+</tr>
+<tr>
+<td><code>/api/modules/:id</code></td>
+<td>DELETE</td>
+<td>Delete module (Instructor only)</td>
 </tr>
 </tbody>
 </table>
@@ -978,46 +986,19 @@ Users log in or sign up using email and password.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>/api/enroll/:courseId</code></td>
+<td><code>/api/enrollments/course/:courseId</code></td>
 <td>POST</td>
-<td>Enroll in course</td>
+<td>Enroll in course (Student only)</td>
 </tr>
 <tr>
-<td><code>/api/enroll/my-courses</code></td>
+<td><code>/api/enrollments/course/:courseId/status</code></td>
 <td>GET</td>
-<td>Get user's enrolled courses</td>
+<td>Check enrollment status</td>
 </tr>
-</tbody>
-</table>
-<h3 id="v-module-endpoints"><strong>V. Module Endpoints</strong><a class="headerlink" href="#v-module-endpoints" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
 <tr>
-<th><strong>Endpoint</strong></th>
-<th><strong>Method</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/api/courses/:id/modules</code></td>
+<td><code>/api/enrollments/course/:courseId</code></td>
 <td>GET</td>
-<td>Get course modules</td>
-</tr>
-<tr>
-<td><code>/api/courses/:id/modules</code></td>
-<td>POST</td>
-<td>Add module to course</td>
-</tr>
-<tr>
-<td><code>/api/modules/:id</code></td>
-<td>PUT</td>
-<td>Update module</td>
-</tr>
-<tr>
-<td><code>/api/modules/:id</code></td>
-<td>DELETE</td>
-<td>Delete module</td>
+<td>Get course enrollments (Instructor only)</td>
 </tr>
 </tbody>
 </table>
@@ -1075,13 +1056,13 @@ Users log in or sign up using email and password.</p>
         
         
           
-          <a href="../dfd/" class="md-footer__link md-footer__link--next" aria-label="Next: Data Flow Diagrams">
+          <a href="../cicd/" class="md-footer__link md-footer__link--next" aria-label="Next: CI/CD Pipeline and Deployment Flow">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Data Flow Diagrams
+                CI/CD Pipeline and Deployment Flow
               </div>
             </div>
             <div class="md-footer__button md-icon">

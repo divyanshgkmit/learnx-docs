@@ -360,18 +360,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ii-video-playback-flow" class="md-nav__link">
+  <a href="#ii-course-creation-management-flow" class="md-nav__link">
     <span class="md-ellipsis">
-      II. Video Playback Flow
+      II. Course Creation &amp; Management Flow
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iii-enrollment-flow" class="md-nav__link">
+  <a href="#iii-student-learning-flow" class="md-nav__link">
     <span class="md-ellipsis">
-      III. Enrollment Flow
+      III. Student Learning Flow
     </span>
   </a>
   
@@ -392,45 +392,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-instructor-student-workflow" class="md-nav__link">
+  <a href="#4-use-case-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Instructor &amp; Student Workflow
+      4. Use Case Summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-use-case-summary" class="md-nav__link">
+  <a href="#5-system-flow" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Use Case Summary
+      5. System Flow
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-system-flow" class="md-nav__link">
+  <a href="#6-edge-case-handling" class="md-nav__link">
     <span class="md-ellipsis">
-      6. System Flow
+      6. Edge Case Handling
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-edge-case-handling" class="md-nav__link">
+  <a href="#7-future-scope" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Edge Case Handling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-future-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Future Scope
+      7. Future Scope
     </span>
   </a>
   
@@ -517,6 +508,29 @@
   
   <span class="md-ellipsis">
     Architecture & Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Pipeline and Deployment Flow
     
   </span>
   
@@ -657,18 +671,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ii-video-playback-flow" class="md-nav__link">
+  <a href="#ii-course-creation-management-flow" class="md-nav__link">
     <span class="md-ellipsis">
-      II. Video Playback Flow
+      II. Course Creation &amp; Management Flow
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iii-enrollment-flow" class="md-nav__link">
+  <a href="#iii-student-learning-flow" class="md-nav__link">
     <span class="md-ellipsis">
-      III. Enrollment Flow
+      III. Student Learning Flow
     </span>
   </a>
   
@@ -689,45 +703,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-instructor-student-workflow" class="md-nav__link">
+  <a href="#4-use-case-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Instructor &amp; Student Workflow
+      4. Use Case Summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-use-case-summary" class="md-nav__link">
+  <a href="#5-system-flow" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Use Case Summary
+      5. System Flow
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-system-flow" class="md-nav__link">
+  <a href="#6-edge-case-handling" class="md-nav__link">
     <span class="md-ellipsis">
-      6. System Flow
+      6. Edge Case Handling
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-edge-case-handling" class="md-nav__link">
+  <a href="#7-future-scope" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Edge Case Handling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-future-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Future Scope
+      7. Future Scope
     </span>
   </a>
   
@@ -807,23 +812,27 @@
     H --&gt;|Student| J[Redirect to Student Dashboard]
     F --&gt;|Invalid| K[Show Error Message]</code></pre>
 <hr />
-<h3 id="ii-video-playback-flow"><strong>II. Video Playback Flow</strong><a class="headerlink" href="#ii-video-playback-flow" title="Permanent link">&para;</a></h3>
-<p>Students open a lesson and play the video directly from Cloudinary. Once the video is completed, they can mark the lesson as done to track progress.</p>
-<pre class="mermaid"><code>flowchart LR
-    A[Student Opens Lesson Page] --&gt; B[Click Lesson Tabs]
-    B --&gt; C[Stream Video in Player]
-    C --&gt; D[Mark Lesson as Completed]</code></pre>
-<hr />
-<h3 id="iii-enrollment-flow"><strong>III. Enrollment Flow</strong><a class="headerlink" href="#iii-enrollment-flow" title="Permanent link">&para;</a></h3>
-<p>Students select a course and proceed to the payment gateway. On successful payment, the course is added to their dashboard and they can start learning. If the payment fails, an error message is shown.</p>
+<h3 id="ii-course-creation-management-flow"><strong>II. Course Creation &amp; Management Flow</strong><a class="headerlink" href="#ii-course-creation-management-flow" title="Permanent link">&para;</a></h3>
+<p>Instructors create and manage courses with modules and media uploads.</p>
 <pre class="mermaid"><code>flowchart TD
-    A[Student Selects Course] --&gt; B[Click Enroll]
-    B --&gt; C[Redirect to Payment Gateway - Test Mode]
-    C --&gt; D{Payment Successful?}
-    D --&gt;|Yes| E[Confirm Enrollment]
-    D --&gt;|No| F[Show Payment Failed Message]
-    E --&gt; G[Add Course to Student Dashboard]
-    G --&gt; H[Access Course Lessons]</code></pre>
+    A[Instructor Dashboard] --&gt; B[Create New Course]
+    B --&gt; C[Add Course Details]
+    C --&gt; D[Upload Thumbnail to Cloudinary]
+    D --&gt; E[Add Course Modules]
+    E --&gt; F[Upload Module Videos]
+    F --&gt; G[Publish Course]
+    G --&gt; H[Course Available for Enrollment]</code></pre>
+<hr />
+<h3 id="iii-student-learning-flow"><strong>III. Student Learning Flow</strong><a class="headerlink" href="#iii-student-learning-flow" title="Permanent link">&para;</a></h3>
+<p>Students browse, enroll, and progress through courses with video content.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Student Dashboard] --&gt; B[Browse Courses]
+    B --&gt; C[View Course Details]
+    C --&gt; D[Enroll in Course]
+    D --&gt; E[Access Learning Interface]
+    E --&gt; F[Navigate Through Modules]
+    F --&gt; G[Watch Video Content]
+    G --&gt; H[Mark Course as Completed]</code></pre>
 <hr />
 <h2 id="3-core-functional-modules"><strong>3. Core Functional Modules</strong><a class="headerlink" href="#3-core-functional-modules" title="Permanent link">&para;</a></h2>
 <table>
@@ -861,76 +870,70 @@
 </tbody>
 </table>
 <hr />
-<h2 id="4-instructor-student-workflow"><strong>4. Instructor &amp; Student Workflow</strong><a class="headerlink" href="#4-instructor-student-workflow" title="Permanent link">&para;</a></h2>
-<p>Instructors create courses by adding details and uploading lesson videos to Cloudinary. Once published, these courses appear for students to browse and enroll. Students can join courses, access lessons, watch videos, and mark their progress as completed from their dashboard.</p>
-<pre class="mermaid"><code>flowchart TD
-    A[Instructor Dashboard] --&gt; B[Create Course]
-    B --&gt; C[Add Course Details - Title, Description, Tags]
-    C --&gt; D[Upload Lesson Videos to Cloudinary]
-    D --&gt; E[Publish Course]
-    E --&gt; F[Course Visible to Students]
-    F --&gt; G[Manage Existing Courses - Edit / Delete]
-    I[Student Dashboard] --&gt; J[Browse Courses]
-    J --&gt; K[View Course Details]
-    K --&gt; L[Click Enroll]
-    L --&gt; M[Enrollment Confirmed]
-    M --&gt; N[Access Lessons]
-    N --&gt; O[Watch Videos]
-    O --&gt; P[Mark Course as Completed]</code></pre>
-<hr />
-<h2 id="5-use-case-summary"><strong>5. Use Case Summary</strong><a class="headerlink" href="#5-use-case-summary" title="Permanent link">&para;</a></h2>
+<h2 id="4-use-case-summary"><strong>4. Use Case Summary</strong><a class="headerlink" href="#4-use-case-summary" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><strong>ID</strong></th>
+<th><strong>ID</strong></th>
 <th><strong>Use Case</strong></th>
 <th><strong>Action</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">F1</td>
-<td>Register User</td>
-<td>Sign up as Instructor or Student</td>
+<td><strong>F1</strong></td>
+<td>User Registration</td>
+<td>Create account with Student/Instructor role</td>
 </tr>
 <tr>
-<td style="text-align: center;">F2</td>
-<td>Login User</td>
-<td>Authenticate using JWT or Firebase</td>
+<td><strong>F2</strong></td>
+<td>User Login</td>
+<td>Authenticate with email/password</td>
 </tr>
 <tr>
-<td style="text-align: center;">F3</td>
-<td>Create Course</td>
-<td>Instructor adds course with videos</td>
+<td><strong>F3</strong></td>
+<td>Course Creation</td>
+<td>Instructor creates courses with details</td>
 </tr>
 <tr>
-<td style="text-align: center;">F4</td>
-<td>Enroll in Course</td>
-<td>Students join a course</td>
+<td><strong>F4</strong></td>
+<td>Module Management</td>
+<td>Add/remove course modules with videos</td>
 </tr>
 <tr>
-<td style="text-align: center;">F5</td>
-<td>Watch Videos</td>
-<td>Students stream lessons</td>
+<td><strong>F5</strong></td>
+<td>Course Enrollment</td>
+<td>Students enroll in available courses</td>
 </tr>
 <tr>
-<td style="text-align: center;">F6</td>
-<td>Manage Course</td>
-<td>Instructor edits or deletes courses</td>
+<td><strong>F6</strong></td>
+<td>Video Learning</td>
+<td>Stream module videos</td>
+</tr>
+<tr>
+<td><strong>F7</strong></td>
+<td>Progress Tracking</td>
+<td>Mark courses as completed</td>
+</tr>
+<tr>
+<td><strong>F8</strong></td>
+<td>File Uploads</td>
+<td>Upload thumbnails and videos to Cloudinary</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="6-system-flow"><strong>6. System Flow</strong><a class="headerlink" href="#6-system-flow" title="Permanent link">&para;</a></h2>
-<p>The React + Vite frontend interacts with the Node.js + Express backend via APIs. The backend connects to MongoDB for data storage and Cloudinary for media handling. The PWA setup ensures fast, responsive, user experience across devices.</p>
+<h2 id="5-system-flow"><strong>5. System Flow</strong><a class="headerlink" href="#5-system-flow" title="Permanent link">&para;</a></h2>
+<p>Modern web architecture with React frontend and Node.js backend.</p>
 <pre class="mermaid"><code>graph LR
-    A[Frontend - React/Vite] --&gt; B[Backend - Nodejs/Express]
+    A[Frontend - React/Vite] --&gt; B[Backend - Node.js/Express]
     B --&gt; C[(Database - MongoDB)]
-    B --&gt; D[(Cloudinary)]
-    A --&gt;|API Calls| B
+    B --&gt; D[(Cloudinary - Media Storage)]
+    A --&gt;|REST API Calls| B
+    A --&gt;|JWT Authentication| B
     A --&gt;|PWA| A</code></pre>
 <hr />
-<h2 id="7-edge-case-handling"><strong>7. Edge Case Handling</strong><a class="headerlink" href="#7-edge-case-handling" title="Permanent link">&para;</a></h2>
+<h2 id="6-edge-case-handling"><strong>6. Edge Case Handling</strong><a class="headerlink" href="#6-edge-case-handling" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -941,37 +944,36 @@
 <tbody>
 <tr>
 <td>Invalid credentials</td>
-<td>Show error message</td>
+<td>Show error message with validation</td>
 </tr>
 <tr>
 <td>JWT expired</td>
-<td>Redirect to login</td>
+<td>Auto-redirect to login page</td>
 </tr>
 <tr>
 <td>Unauthorized access</td>
-<td>Redirect to dashboard</td>
+<td>Redirect to appropriate dashboard</td>
 </tr>
 <tr>
-<td>Upload failed</td>
-<td>Retry or notify user</td>
+<td>Video playback issues</td>
+<td>Fallback handling with error states</td>
 </tr>
 <tr>
-<td>Video not loading</td>
-<td>Retry or show fallback</td>
-</tr>
-<tr>
-<td>Instructor deletes a course with enrolled students</td>
-<td>Currently, the course is deleted but in the future, a soft delete or “inactive” status can be added to avoid data loss for students.</td>
+<td>Course deletion with enrollments</td>
+<td>Current: Hard delete, Future: Soft delete with archives</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="8-future-scope"><strong>8. Future Scope</strong><a class="headerlink" href="#8-future-scope" title="Permanent link">&para;</a></h2>
+<h2 id="7-future-scope"><strong>7. Future Scope</strong><a class="headerlink" href="#7-future-scope" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Progress Tracker:</strong> Track lesson completion and learning analytics</li>
-<li><strong>Payment Integration:</strong> Enable paid course enrollment</li>
-<li><strong>AI Recommendations:</strong> Suggest courses based on learner behavior</li>
-<li><strong>Enhanced PWA:</strong> Push notifications, offline playback, and sync</li>
+<li><strong>Advanced Analytics</strong> - Detailed progress tracking and learning insights</li>
+<li><strong>Payment Integration</strong> - Paid course enrollment system</li>
+<li><strong>Discussion Forums</strong> - Student-instructor interactions</li>
+<li><strong>Assessment System</strong> - Quizzes and assignments</li>
+<li><strong>Mobile App</strong> - Native mobile application</li>
+<li><strong>Offline Learning</strong> - Downloadable course content</li>
+<li><strong>AI Recommendations</strong> - Personalized course suggestions</li>
 </ul>
 
 

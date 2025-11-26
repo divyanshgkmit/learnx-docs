@@ -385,6 +385,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../cicd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Pipeline and Deployment Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../dfd/" class="md-nav__link">
         
   
@@ -649,33 +672,33 @@ It ensures relational integrity and supports the platform's main functionalities
 <tbody>
 <tr>
 <td><strong>USERS</strong></td>
-<td><code>_id</code>, <code>name</code>, <code>email</code>, <code>password</code>, <code>timestamps</code></td>
-<td>Unique email, hashed password, supports login &amp; profile</td>
+<td><code>_id</code>, <code>fullName</code>, <code>email</code>, <code>password</code>, <code>timestamps</code></td>
+<td>User accounts with authentication</td>
 </tr>
 <tr>
 <td><strong>ROLES</strong></td>
 <td><code>_id</code>, <code>name</code>, <code>timestamps</code></td>
-<td>Defines user roles (Instructor / Student)</td>
+<td>User roles (Instructor/Student)</td>
 </tr>
 <tr>
 <td><strong>USER_ROLES</strong></td>
 <td><code>_id</code>, <code>userId</code>, <code>roleId</code>, <code>timestamps</code></td>
-<td>Links users with roles; many-to-many mapping</td>
+<td>Links users with roles</td>
 </tr>
 <tr>
 <td><strong>COURSES</strong></td>
-<td><code>_id</code>, <code>title</code>, <code>description</code>, <code>instructorId</code>, <code>timestamps</code></td>
-<td>Stores course details created by instructors</td>
+<td><code>_id</code>, <code>instructorId</code>, <code>title</code>, <code>category</code>, <code>difficultyLevel</code>, <code>description</code>, <code>thumbnailUrl</code>, <code>price</code>, <code>isPublished</code>, <code>timestamps</code></td>
+<td>Course details with media</td>
 </tr>
 <tr>
 <td><strong>MODULES</strong></td>
-<td><code>_id</code>, <code>title</code>, <code>courseId</code>, <code>videoUrl</code>, <code>duration</code>, <code>timestamps</code></td>
-<td>Lessons within a course</td>
+<td><code>_id</code>, <code>courseId</code>, <code>title</code>, <code>videoUrl</code>, <code>duration</code>, <code>order</code>, <code>timestamps</code></td>
+<td>Course lessons with videos</td>
 </tr>
 <tr>
 <td><strong>ENROLLMENTS</strong></td>
-<td><code>_id</code>, <code>studentId</code>, <code>courseId</code>, <code>status</code>, <code>timestamps</code></td>
-<td>Tracks which students are enrolled in which courses</td>
+<td><code>_id</code>, <code>studentId</code>, <code>courseId</code>, <code>amountPaid</code>, <code>isCompleted</code>, <code>timestamps</code></td>
+<td>Student enrollments with progress</td>
 </tr>
 </tbody>
 </table>
@@ -691,24 +714,34 @@ It ensures relational integrity and supports the platform's main functionalities
 </thead>
 <tbody>
 <tr>
-<td>USERS</td>
-<td>email</td>
-<td>Unique login; fast user search</td>
+<td><strong>USERS</strong></td>
+<td><code>email</code></td>
+<td>Unique login and user search</td>
 </tr>
 <tr>
-<td>USER_ROLES</td>
-<td>userId + roleId</td>
+<td><strong>USER_ROLES</strong></td>
+<td><code>userId</code>, <code>roleId</code></td>
 <td>Prevent duplicate roles</td>
 </tr>
 <tr>
-<td>COURSES</td>
-<td>instructorId</td>
-<td>Quickly fetch all courses by instructor</td>
+<td><strong>COURSES</strong></td>
+<td><code>instructorId</code></td>
+<td>Fetch instructor courses</td>
 </tr>
 <tr>
-<td>ENROLLMENTS</td>
-<td>studentId, courseId</td>
-<td>Avoid duplicate enrollment; fast progress lookup</td>
+<td><strong>COURSES</strong></td>
+<td><code>isPublished</code></td>
+<td>Filter published courses</td>
+</tr>
+<tr>
+<td><strong>MODULES</strong></td>
+<td><code>courseId</code>, <code>order</code></td>
+<td>Maintain module sequence</td>
+</tr>
+<tr>
+<td><strong>ENROLLMENTS</strong></td>
+<td><code>studentId</code>, <code>courseId</code></td>
+<td>Prevent duplicate enrollments</td>
 </tr>
 </tbody>
 </table>
@@ -716,8 +749,8 @@ It ensures relational integrity and supports the platform's main functionalities
 <h2 id="5-relationships"><strong>5. Relationships</strong><a class="headerlink" href="#5-relationships" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Users ↔ Roles</strong>: Many-to-many via <code>USER_ROLES</code></li>
-<li><strong>Instructor ↔ Courses</strong>: One-to-many</li>
-<li><strong>Course ↔ Modules</strong>: One-to-many</li>
+<li><strong>Instructor → Courses</strong>: One-to-many</li>
+<li><strong>Course → Modules</strong>: One-to-many  </li>
 <li><strong>Students ↔ Courses</strong>: Many-to-many via <code>ENROLLMENTS</code></li>
 </ul>
 
