@@ -102,6 +102,7 @@ flowchart TD
 | `/api/enrollments/course/:courseId`  | POST       | Enroll in course (Student only)            |
 | `/api/enrollments/course/:courseId/status` | GET        | Check enrollment status |
 | `/api/enrollments/course/:courseId` | GET | Get course enrollments (Instructor only) |
+| `/api/enrollments/course/:courseId/complete` | PATCH | Mark course as completed (Student only) |
 
 ---
 

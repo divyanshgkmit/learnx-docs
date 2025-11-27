@@ -24,20 +24,7 @@ It ensures relational integrity and supports the platform's main functionalities
 
 ---
 
-## **4. Indexing**
-
-| Collection | Field(s) | Purpose |
-|------------|----------|---------|
-| **USERS** | `email` | Unique login and user search |
-| **USER_ROLES** | `userId`, `roleId` | Prevent duplicate roles |
-| **COURSES** | `instructorId` | Fetch instructor courses |
-| **COURSES** | `isPublished` | Filter published courses |
-| **MODULES** | `courseId`, `order` | Maintain module sequence |
-| **ENROLLMENTS** | `studentId`, `courseId` | Prevent duplicate enrollments |
-
----
-
-## **5. Relationships**
+## **4. Relationships**
 
 * **Users ↔ Roles**: Many-to-many via `USER_ROLES`
 * **Instructor → Courses**: One-to-many
