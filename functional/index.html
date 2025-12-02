@@ -923,8 +923,8 @@
 <p>Modern web architecture with React frontend and Node.js backend.</p>
 <pre class="mermaid"><code>graph LR
     A[Frontend - React/Vite] --&gt; B[Backend - Node.js/Express]
-    B --&gt; C[(Database - MongoDB)]
-    B --&gt; D[(Cloudinary - Media Storage)]
+    B &lt;--&gt; C[(Database - MongoDB)]
+    B &lt;--&gt; D[(Cloudinary - Media Storage)]
     A --&gt;|REST API Calls| B
     A --&gt;|JWT Authentication| B
     A --&gt;|PWA| A</code></pre>
